@@ -1,0 +1,12 @@
+	public void connect(URL url) {
+
+		if (authorized || blacklistedHosts.stream().noneMatch(url.getHost()::contains)) {
+			System.out.println("Connecting to url " + url);
+			networkConnection.connect(url);
+		} else {
+			System.out.println("Your requested " + url + " was rejected!");
+			System.out.println("You are redirected to " + redirectPage);
+		}
+
+	}
+  
